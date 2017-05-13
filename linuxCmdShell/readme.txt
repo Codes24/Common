@@ -1,3 +1,3 @@
-﻿chương trình cho phép người dùng chạy các commandline linux dựa trên /bin/bash
+﻿Program allow user run Linux Commandline bash on /bin/bash
 
-NOTE: version này chỉ có thể build trên linux
+Note:	Run only on Linux
