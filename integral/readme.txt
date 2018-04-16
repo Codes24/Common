@@ -1,1 +1,1 @@
-Tính tích phân hàm nhập vào
+﻿Tính tích phân của một hàm nhập vào
