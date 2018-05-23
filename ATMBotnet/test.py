@@ -1,8 +1,5 @@
-import nmap
-import sys
-import os
+import requests
 
-nm = nmap.PortScanner()         # instantiate nmap.PortScanner object
-nm.scan(hosts='192.168.56.20', arguments='-n -sS')
+r = requests.get("http://192.168.56.60")
 
-print(nm['192.168.56.20'])
+print(r.text)
